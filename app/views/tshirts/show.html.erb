@@ -2,7 +2,9 @@
   <div class='tshirt'>
     <h2><%= @tshirt.title %></h2>
     <%= image_tag( @tshirt.photo_url )%>
+    <% if user_signed_in? %>
     <%= link_to 'Edit', edit_tshirt_path(@tshirt) %>
     <%= link_to 'delete', @tshirt, method: :delete %>
+    <% end %>
   </div>
 </div>

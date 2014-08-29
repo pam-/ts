@@ -9,7 +9,16 @@
 <body>
 <header>
   <h1><%= link_to 'ts', tshirts_path %></h1>
-  <%= link_to 'New Tshirt', new_tshirt_path %>
+  <ul>
+  	<% if user_signed_in? %> 
+  		<li><%= link_to 'New Tshirt', new_tshirt_path %></li>
+  		<li> <%= link_to 'Settings', edit_user_registration_path %> </li>
+  		<li> <%= link_to 'Sign out', sign_out_path, method: :delete %> </li>
+  	<% else %> 
+  		<li> Not a user? <%= link_to 'Sign up', sign_up_path %> </li>
+  		<li> <%= link_to 'Sign in', sign_in_path %> </li>
+  	<% end %>
+  </ul>
 </header>
 
 <%= yield %>

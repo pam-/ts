@@ -5,8 +5,10 @@
       <h2><%= t.title %></h2>
       <%= image_tag( t.photo_url )%>
       <%= link_to 'view', tshirt_path(t) %>
+      <% if user_signed_in? %>
       <%= link_to 'edit', edit_tshirt_path(t) %>
       <%= link_to 'delete', t, method: :delete %>
+      <% end %>
     </div>
   </div>
 <% end %>

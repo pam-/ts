@@ -1,4 +1,5 @@
 class TshirtsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @tshirts = Tshirt.all
